@@ -181,7 +181,8 @@ const list = require("./routes/list.js")
 app.use("/list", list)
 const detail=require("./routes/details.js")
 app.use("/detail",detail)
-
+const search=require("./routes/search.js")
+app.use("/search",search)
 
 
 
