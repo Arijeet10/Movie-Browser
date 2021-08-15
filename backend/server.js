@@ -177,8 +177,10 @@ app.use(cors());
 
 
 
-const home = require("./routes/list.js")
-app.use("/home", home)
+const list = require("./routes/list.js")
+app.use("/list", list)
+const detail=require("./routes/details.js")
+app.use("/detail",detail)
 
 
 
