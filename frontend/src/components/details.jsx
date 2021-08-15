@@ -1,10 +1,16 @@
 import React from "react";
 
-function Detail(){
+function Detail(props){
 
     return(
         <div>
-            Movie Details
+            {props.title}<br />
+            {props.rating}<br />
+            {props.date}<br />
+            {props.length}<br />
+            {props.desc}<br />
+            {props.cast}<br />
+            {props.director}<br />
         </div>
     )
 }

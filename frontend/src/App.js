@@ -2,24 +2,57 @@ import React, { useEffect, useState } from "react";
 import List from "./components/list";
 import Detail from "./components/details";
 import axios from "axios";
+import Nav from "./components/navigation";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
 
-  const [state,setState]=useState({})
+  const [state, setState] = useState([])
+  const [movieDetail, setMovieDetail] = useState({})
 
-  const movieList=async()=>{
-    const list=await axios.get("http://localhost:5000/list")
+  const movieList = async () => {
+    const list = await axios.get("http://localhost:5000/list")
     setState(list)
   }
 
-  useEffect(()=>{
+  useEffect(function () {
     movieList()
-  },[state])
+  }, [setState])
+
+
+  function showDetails(uniqueId) {
+    axios.post(`http://localhost:5000/detail/${uniqueId}`)
+      .then(res => { setMovieDetail(res.data) })
+      .catch(err => { console.log(err) })
+  }
 
   return (
     <div className="App">
-      <List />
-      <Detail />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            {state.data && state.data.map(
+              (comming, index) => {
+                return (<List key={index} uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />)
+              })}
+          </Route>
+          <Route path="/nav">
+            <Nav />
+          </Route>
+          <Route path="/detail">
+          <Detail title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} />
+          </Route>
+          <Route component={Error}></Route>
+        </Switch>
+      </Router>
+      {/* <Nav />
+      {console.log(movieDetail)}
+      {state.data && state.data.map(
+        (comming, index) => {
+          return (<List key={index} uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />)
+        })}
+      <Detail title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} /> */}
+    
     </div>
   );
 }
