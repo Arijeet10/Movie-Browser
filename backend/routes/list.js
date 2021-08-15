@@ -20,11 +20,16 @@ router.route("/").get((req, res) => {
 
         response.on("end", function () {
             const Upcomming = JSON.parse(data)
-            // const movieTitle = Upcomming.results[0].original_title
-            // const movieRating = Upcomming.results[0].vote_average
-            // const movieDescription = Upcomming.results[0].overview
-            // const movieImage = Upcomming.results[0].backdrop_path
-            res.json(Upcomming)
+            const movieTitle = Upcomming.results[0].original_title
+            const movieRating = Upcomming.results[0].vote_average
+            const movieDescription = Upcomming.results[0].overview
+            const movieImage = Upcomming.results[0].backdrop_path
+            res.json({
+                movie:movieTitle,
+                rating:movieRating,
+                desc:movieDescription,
+                image:movieImage
+            })
         })
     })
 })

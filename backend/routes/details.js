@@ -23,11 +23,11 @@ router.route("/:id").post((req, res) => {
 
         response.on("end", function () {
             const Details = JSON.parse(data)
-            // const Title = Details.original_title
-            // const Rating = Details.vote_average
-            // const releaseData = Details.release_date
-            // const length = Details.runtime
-            // const Description = Details.overview
+            const Title = Details.original_title
+            const Rating = Details.vote_average
+            const releaseData = Details.release_date
+            const length = Details.runtime
+            const Description = Details.overview
             // console.log(Title)
             // console.log(Rating)
             // console.log(releaseData)
@@ -56,7 +56,13 @@ router.route("/:id").post((req, res) => {
                     const Cast = Credits.cast[0].name
                     const Director = Credits.crew[0].name
                     res.json({
-                        Details,Credits
+                        movieName:Title,
+                        movieRating:Rating,
+                        releaseDate:releaseData,
+                        movieLength:length,
+                        movieDesc:Description,
+                        movieCast:Cast,
+                        movieDirector:Director
                     })
                 })
                 // res.on("creditData",function(creditData){
