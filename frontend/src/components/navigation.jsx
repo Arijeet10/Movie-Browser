@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Search from "./search"
 
 function Nav(){
-
-    const imgUrl = "http://image.tmdb.org/t/p/original"
 
     const [state,setState]=useState("")
     const [searchData,setSearchData]=useState()
@@ -35,12 +34,7 @@ function Nav(){
             <button type="submit">Home</button>
             {searchData&&searchData.map((search,index)=>{
                 return(
-                    <p>
-                        <img src={imgUrl + search.backdrop_path} alt="Movie" /><br />
-                        {search.original_title}<br />
-                        {search.vote_average}<br />
-                        {search.overview}<br/>
-                    </p>
+                    <Search key={index} title={search.original_title} desc={search.overview} rating={search.vote_average} image={search.poster_path} />
                 )
             })}
         </div>
