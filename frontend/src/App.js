@@ -4,6 +4,7 @@ import Detail from "./components/details";
 import Nav from "./components/navigation";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Grid, Paper } from "@material-ui/core";
 
 function App() {
 
@@ -34,10 +35,16 @@ function App() {
           <Route exact path="/">
             <Fragment>
               <Nav />
-              {state.data && state.data.map(
-                (comming, index) => {
-                  return (<List key={index} uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />)
-                })}
+              <Grid container spacing={2}>
+                {state.data && state.data.map(
+                  (comming, index) =>
+                    <Grid item key={index} xs={9} md={3} lg={2}>
+                      <Paper>
+                        <List uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />
+                      </Paper>
+                    </Grid>
+                )}
+              </Grid>
             </Fragment>
 
           </Route>
