@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import List from "./components/list";
 import Detail from "./components/details";
+import Nav from "./components/navigation";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -31,13 +32,17 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            {state.data && state.data.map(
-              (comming, index) => {
-                return (<List key={index} uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />)
-              })}
+            <Fragment>
+              <Nav />
+              {state.data && state.data.map(
+                (comming, index) => {
+                  return (<List key={index} uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />)
+                })}
+            </Fragment>
+
           </Route>
           <Route path="/detail">
-          <Detail title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} />
+            <Detail title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} />
           </Route>
           <Route component={Error}></Route>
         </Switch>
@@ -49,7 +54,7 @@ function App() {
           return (<List key={index} uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />)
         })}
       <Detail title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} /> */}
-    
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Nav from "./navigation";
+
 
 function List(props) {
 
@@ -12,7 +12,6 @@ function List(props) {
 
     return (
         <div>
-            <Nav />
             <Link to="/detail">
                 <div onClick={handleClick}>
                     <ul>

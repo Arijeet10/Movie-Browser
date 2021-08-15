@@ -36,7 +36,8 @@ function Nav(){
                 return(
                     <Search key={index} title={search.original_title} desc={search.overview} rating={search.vote_average} image={search.poster_path} />
                 )
-            })}
+            })
+            }
         </div>
     )
 }
