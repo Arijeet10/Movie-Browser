@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Search from "./search"
-import { AppBar, FormControl, Grid, Input, InputAdornment, Paper } from "@material-ui/core";
+import { AppBar, FormControl, Grid, IconButton, Input, InputAdornment, Link, Paper } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
@@ -153,7 +153,9 @@ function Nav() {
                                     }
                                     startAdornment={
                                         <InputAdornment position="start">
+                                            <IconButton>
                                             <SearchIcon style={{ color: "#03a9f4" }} onClick={handleClick} />
+                                            </IconButton>
                                         </InputAdornment>
                                     }
                                     value={state}
@@ -162,7 +164,11 @@ function Nav() {
                             </MuiThemeProvider>
                         </FormControl>
                     </div>
-                    <HomeIcon style={{ float: "right", color: "#03a9f4" }} />
+                    <Link to="/" style={{ textDecoration: 'none' }}>
+                        <IconButton style={{ float: "right", color: "#03a9f4" }}>
+                            <HomeIcon />
+                        </IconButton>
+                    </Link>
                 </div>
             </AppBar>
 
