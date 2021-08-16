@@ -23,7 +23,7 @@ router.route("/:id").post((req, res) => {
 
         response.on("end", function () {
             const Details = JSON.parse(data)
-            const Poster=Details.belongs_to_collection.poster_path
+            const Poster=Details.poster_path
             const Title = Details.original_title
             const Rating = Details.vote_average
             const releaseData = Details.release_date
@@ -37,7 +37,7 @@ router.route("/:id").post((req, res) => {
 
 
             //get cast and director data
-            const creditsUrl = "https://api.themoviedb.org/3/movie/436969/credits?api_key=2ee360ce8f2c8558a7907411bf525171"
+            const creditsUrl = `https://api.themoviedb.org/3/movie/${req.params.id}/credits?api_key=2ee360ce8f2c8558a7907411bf525171`
             https.get(creditsUrl, function (resp) {
                 console.log(resp.statusCode)
 
