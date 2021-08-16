@@ -44,7 +44,7 @@ function List(props) {
 
         <div>
             <Link to="/detail" style={{ textDecoration: 'none' }}>
-                <div className="list" onClick={handleClick}>
+                <div onClick={handleClick}>
                     <Card className={classes.root}>
                         <CardMedia
                             className={classes.media}

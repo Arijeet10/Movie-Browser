@@ -35,21 +35,25 @@ function App() {
           <Route exact path="/">
             <Fragment>
               <Nav />
-              <Grid container spacing={2}>
-                {state.data && state.data.map(
-                  (comming, index) =>
-                    <Grid item key={index} xs={9} md={3} lg={2}>
-                      <Paper>
-                        <List uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />
-                      </Paper>
-                    </Grid>
-                )}
-              </Grid>
+              <div style={{ marginTop: 20 }}>
+                <Grid container spacing={2}>
+                  {state.data && state.data.map(
+                    (comming, index) =>
+                      <Grid item key={index} xs={9} md={3} lg={2}>
+                        <Paper>
+                          <List uniqueId={comming.id} showDetails={showDetails} title={comming.original_title} desc={comming.overview} rating={comming.vote_average} image={comming.poster_path} />
+                        </Paper>
+                      </Grid>
+                  )}
+                </Grid>
+              </div>
             </Fragment>
-
           </Route>
           <Route path="/detail">
-            <Detail title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} />
+            <Nav />
+            <div style={{ marginTop: 20 }}>
+              <Detail poster={movieDetail.moviePoster} title={movieDetail.movieName} rating={movieDetail.movieRating} date={movieDetail.releaseDate} length={movieDetail.movieLength} desc={movieDetail.movieDesc} cast={movieDetail.movieCast} director={movieDetail.movieDirector} />
+            </div>
           </Route>
           <Route component={Error}></Route>
         </Switch>
