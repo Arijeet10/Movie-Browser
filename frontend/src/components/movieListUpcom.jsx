@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, Typography } from "@material-ui/core";
@@ -16,35 +16,17 @@ const useStyles = makeStyles({
     }
 })
 
+function MovieListUpcom(props) {
 
-function List(props) {
     const classes = useStyles();
 
-    const imgUrl = "http://image.tmdb.org/t/p/original" //default image url(base url+image size)
+    const imgUrl = "http://image.tmdb.org/t/p/original"
 
-    function handleClick() {
-        props.showDetails(props.uniqueId)
-    }
 
     return (
-        // <div>
-        //     <Link to="/detail">
-        //         <div onClick={handleClick}>
-        //             <ul>
-        //                 <li>
-        //                     <img src={imgUrl + props.image} alt="Movie" />
-        //                 </li>
-        //                 <li>{props.title}</li>
-        //                 <li>{props.rating}</li>
-        //                 <li>{props.desc}</li>
-        //             </ul>
-        //         </div>
-        //     </Link>
-        // </div>
-
         <div>
-            <Link to="/detail" style={{ textDecoration: 'none' }}>
-                <div onClick={handleClick}>
+            <Link to={'/movie/' + props.movie.id} style={{ textDecoration: 'none' }}>
+            <div>
                     <Card className={classes.root}>
                         <CardMedia
                             className={classes.media}
@@ -71,4 +53,4 @@ function List(props) {
     )
 }
 
-export default List;
+export default MovieListUpcom
