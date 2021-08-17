@@ -1,10 +1,11 @@
 import React from "react";
-import { searchMovie, fetchMovies, setLoading } from "../actions/searchActions";
+import { searchMovie, fetchMovies, setLoading, fetchUpcomming } from "../actions/searchActions";
 import { connect } from "react-redux";
-import { AppBar, IconButton, Input, InputAdornment, Link } from "@material-ui/core";
+import { AppBar, IconButton, Input, InputAdornment } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
+import {Link} from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -26,6 +27,7 @@ function NavBar(props) {
         props.fetchMovies(props.text)
         props.setLoading();
     }
+
 
     return (
         <div>
@@ -84,7 +86,7 @@ function NavBar(props) {
                             </MuiThemeProvider>
                         </form>
                     </div>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Link to={'/'} style={{ textDecoration: 'none'}}>
                         <IconButton style={{ float: "right", color: "#03a9f4" }}>
                             <HomeIcon />
                         </IconButton>
@@ -102,7 +104,7 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { searchMovie, fetchMovies, setLoading }
+    { searchMovie, fetchMovies, setLoading, fetchUpcomming }
 )(NavBar)
 
 
