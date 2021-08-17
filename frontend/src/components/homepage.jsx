@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import Loading from "./loading";
 import MovieContainer from './movieContainer';
 import NavBar from "./searchbar";
-import MovieList from './movieList';
 
 
 function HomePage(props) {
@@ -14,7 +13,6 @@ function HomePage(props) {
         <div>
             <NavBar />
             {loading?<Loading />:<MovieContainer />}
-            <MovieList />
         </div>
     )
 }

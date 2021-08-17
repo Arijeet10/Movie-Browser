@@ -1,13 +1,52 @@
 import { Grid, Paper } from '@material-ui/core';
-import React from 'react';
+import React,{ useEffect,useState } from 'react';
 import { connect } from "react-redux";
 import MovieCard from "./movieCard";
 import MovieList from './movieList';
-
+import { UPCOM_MOVIES } from '../actions/types';
+import axios from 'axios';
 
 
 function MovieContainer(props) {
     const { movies } = props
+
+
+    const [pageNo,setPageNo]=useState(1);
+
+    
+    const totalPage=()=> {
+        axios.get(`http://localhost:5000/list/`)
+          .then(res => {res.data})
+          .catch(err => { console.log(err) })
+      }
+    
+      const getData=text=>dispatch=>{
+        axios.get(`http://localhost:5000/list/${pageNo}`)
+            .then(res=>{dispatch({
+                type:UPCOM_MOVIES,
+                payload:res.data
+            })})
+            .catch(err=>{console.log(err)})
+    }
+    
+      function handleClick(){
+        const no=pageNo+1;
+        if(pageNo<=totalPage){
+            setPageNo(no);
+        }
+        else{
+            console.log("No pages left")
+        }
+      }
+    
+      useEffect(() => {
+        getData();
+        // eslint-disable-next-line
+      }, [setPageNo])
+
+
+
+
     return (
         <div>
             {movies.length > 0 ?
@@ -24,6 +63,7 @@ function MovieContainer(props) {
                     </Grid>
                 </div>
                 :<MovieList /> }
+                <button type="submit" onClick={handleClick}>Next</button>
         </div>
     )
 }

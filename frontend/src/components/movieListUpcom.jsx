@@ -30,20 +30,20 @@ function MovieListUpcom(props) {
                     <Card className={classes.root}>
                         <CardMedia
                             className={classes.media}
-                            image={imgUrl + props.image}
+                            image={imgUrl + props.poster_path}
                             title="Movie"
                         />
                         <CardContent>
                             <div style={{ display: "flex" }}>
                                 <Typography variant="body2">
-                                    {props.title}
+                                    {props.original_title}
                                 </Typography>
                                 <Typography style={{ marginLeft: 100 }} variant="caption" color="textSecondary">
-                                    {props.rating}
+                                    {props.vote_average}
                                 </Typography>
                             </div>
                             <Typography variant="caption">
-                                {props.desc}
+                                {props.overview}
                             </Typography>
                         </CardContent>
                     </Card>
