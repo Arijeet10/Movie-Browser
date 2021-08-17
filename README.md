@@ -35,8 +35,11 @@ Intructions to run the app
 
 App Demo:
 
+Movie List Page
 ![AppDemo](https://user-images.githubusercontent.com/87312638/129727224-aa8a9aa3-a49e-4626-a49f-c35be80fed69.png)
 
+Movie Details Page
+![detailsPage](https://user-images.githubusercontent.com/87312638/129727534-ee54366f-b027-405d-b5b8-1dea56ad2094.png)
 
 Challenge completed:
 
