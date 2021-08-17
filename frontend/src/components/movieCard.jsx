@@ -37,7 +37,7 @@ function MovieCard(props) {
                                 <Typography variant="body2">
                                     {props.movie.original_title}
                                 </Typography>
-                                <Typography style={{ marginLeft: 100 }} variant="caption" color="textSecondary">
+                                <Typography style={{ marginLeft: 130 }} variant="caption" color="textSecondary">
                                     {props.movie.vote_average}
                                 </Typography>
                             </div>

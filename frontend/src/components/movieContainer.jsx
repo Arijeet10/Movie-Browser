@@ -23,7 +23,7 @@ function MovieContainer(props) {
         axios.get(`http://localhost:5000/list/${pageNo}`)
             .then(res=>{dispatch({
                 type:UPCOM_MOVIES,
-                payload:res.data
+                payload:res.data,
             })})
             .catch(err=>{console.log(err)})
     }
@@ -67,4 +67,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps)(MovieContainer)
+export default connect(mapStateToProps)(MovieContainer);
