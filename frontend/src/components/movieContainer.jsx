@@ -13,12 +13,11 @@ function MovieContainer(props) {
 
     const [pageNo,setPageNo]=useState(1);
 
-    
-    const totalPage=()=> {
-        axios.get(`http://localhost:5000/list/`)
-          .then(res => {res.data})
-          .catch(err => { console.log(err) })
-      }
+    // function getTotalPage() {
+    //     axios.get(`http://localhost:5000/list/`)
+    //       .then(res => {const totalPage = res.data})
+    //       .catch(err => { console.log(err) })
+    //   }
     
       const getData=text=>dispatch=>{
         axios.get(`http://localhost:5000/list/${pageNo}`)
@@ -31,12 +30,7 @@ function MovieContainer(props) {
     
       function handleClick(){
         const no=pageNo+1;
-        if(pageNo<=totalPage){
-            setPageNo(no);
-        }
-        else{
-            console.log("No pages left")
-        }
+        setPageNo(no);
       }
     
       useEffect(() => {
