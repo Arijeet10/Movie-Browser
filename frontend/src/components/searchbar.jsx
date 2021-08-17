@@ -1,11 +1,11 @@
 import React from "react";
 import { searchMovie, fetchMovies, setLoading, fetchUpcomming } from "../actions/searchActions";
 import { connect } from "react-redux";
-import { AppBar, IconButton, Input, InputAdornment } from "@material-ui/core";
+import { AppBar, IconButton, InputAdornment, TextField } from "@material-ui/core";
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -66,27 +66,36 @@ function NavBar(props) {
                             }
                         >
                             <MuiThemeProvider theme={theme}>
-                                <Input
+                                <TextField
                                     style={
                                         {
                                             width: "100%"
                                         }
                                     }
-                                    startAdornment={
-                                        <InputAdornment position="start">
-                                            <IconButton>
-                                                <SearchIcon style={{ color: "#03a9f4" }} onClick={handleSubmit} />
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
+                                    InputProps={{
+                                        startAdornment:
+                                            <InputAdornment position="start">
+                                                <IconButton>
+                                                    <SearchIcon style={{ color: "#03a9f4" }} onClick={handleSubmit} />
+                                                </IconButton>
+                                            </InputAdornment>
+                                    }}
+                                    // startAdornment={
+                                    //     <InputAdornment position="start">
+                                    //         <IconButton>
+                                    //             <SearchIcon style={{ color: "#03a9f4" }} onClick={handleSubmit} />
+                                    //         </IconButton>
+                                    //     </InputAdornment>
+                                    // }
                                     placeholder="search"
                                     onChange={handleReduxChange}
+                                    variant="outlined"
 
                                 />
                             </MuiThemeProvider>
                         </form>
                     </div>
-                    <Link to={'/'} style={{ textDecoration: 'none'}}>
+                    <Link to={'/'} style={{ textDecoration: 'none' }}>
                         <IconButton style={{ float: "right", color: "#03a9f4" }}>
                             <HomeIcon />
                         </IconButton>

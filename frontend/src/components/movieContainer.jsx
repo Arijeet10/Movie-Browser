@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 function MovieContainer(props) {
-    const { movies, search } = props
+    const { movies } = props
 
 
     const [totalPage, setTotalPage] = useState();
@@ -19,7 +19,7 @@ function MovieContainer(props) {
             .catch(err => { console.log(err) })
     }
 
-    let pageNo = 1;
+    let pageNo = 3;
     const getData = text => dispatch => {
         axios.get(`http://localhost:5000/list/${pageNo}`)
             .then(res => {
@@ -80,14 +80,13 @@ function MovieContainer(props) {
                 </div>
                 :<MovieList /> 
                 } */}
-            {/* <button type="submit" onClick={handleClick}>Next</button> */}
+            <button type="submit" onClick={handleClick}>Next</button>
         </div>
     )
 }
 
 const mapStateToProps = state => ({
     movies: state.movies.movies,
-    search: state.movies.search
 })
 
 

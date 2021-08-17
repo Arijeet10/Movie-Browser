@@ -17,7 +17,6 @@ function App() {
               <HomePage />
             </Route>
             <Route exact path="/movie/:id" component={Movie} />
-            <Route path="/"><HomePage /></Route>
           </Switch>
         </Router>
       </Provider>
