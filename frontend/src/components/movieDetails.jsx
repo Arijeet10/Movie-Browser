@@ -32,9 +32,6 @@ const useStyles = makeStyles((theme) => ({
 function Movie(props) {
     const classes = useStyles();
 
-
-    const [state,setState]=useState()
-
     const imgUrl = "http://image.tmdb.org/t/p/original"
 
     const { loading, detail, search } = props;
@@ -47,56 +44,58 @@ function Movie(props) {
     useEffect(() => {
         componentMounting();
         // eslint-disable-next-line
-    },[setState])
+    },[])
 
     return (
         <React.Fragment>
             <NavBar />
             {loading ? <Loading />
-                : (search ?
+                :
+                (search ?
                     <MovieContainer />
                     :
-                    <div className={classes.root}>
-                        <Paper className={classes.paper}>
-                            <Grid container spacing={2}>
-                                <Grid item>
-                                    <ButtonBase className={classes.image}>
-                                        <img className={classes.img} alt="Movie" src={imgUrl + detail.moviePoster} />
-                                    </ButtonBase>
-                                </Grid>
-                                <Grid item xs={12} sm container>
-                                    <Grid item xs container direction="column" spacing={2}>
-                                        <Grid item xs>
-                                            <Typography gutterBottom variant="h6">
-                                                {detail.movieName}
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary">
-                                                Length:{detail.movieLength} minutes
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary">
-                                                Release Date:{detail.releaseDate}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Lead Actor:{detail.movieCast}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Director:{detail.movieDirector}
-                                            </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography variant="caption" style={{ cursor: 'pointer' }}>
-                                                {detail.movieDesc}
-                                            </Typography>
-                                        </Grid>
+                <div className={classes.root}>
+                    <Paper className={classes.paper}>
+                        <Grid container spacing={2}>
+                            <Grid item>
+                                <ButtonBase className={classes.image}>
+                                    <img className={classes.img} alt="Movie" src={imgUrl + detail.moviePoster} />
+                                </ButtonBase>
+                            </Grid>
+                            <Grid item xs={12} sm container>
+                                <Grid item xs container direction="column" spacing={2}>
+                                    <Grid item xs>
+                                        <Typography gutterBottom variant="h6">
+                                            {detail.movieName}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            Length:{detail.movieLength} minutes
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            Release Date:{detail.releaseDate}
+                                        </Typography>
+                                        <Typography variant="body2" gutterBottom>
+                                            Lead Actor:{detail.movieCast}
+                                        </Typography>
+                                        <Typography variant="body2" gutterBottom>
+                                            Director:{detail.movieDirector}
+                                        </Typography>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle1" color="textSecondary">Rating:{detail.movieRating}</Typography>
+                                        <Typography variant="caption" style={{ cursor: 'pointer' }}>
+                                            {detail.movieDesc}
+                                        </Typography>
                                     </Grid>
                                 </Grid>
+                                <Grid item>
+                                    <Typography variant="subtitle1" color="textSecondary">Rating:{detail.movieRating}</Typography>
+                                </Grid>
                             </Grid>
-                        </Paper>
-                    </div>
+                        </Grid>
+                    </Paper>
+                </div>
                 )
+
             }
         </React.Fragment>
 

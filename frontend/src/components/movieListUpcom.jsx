@@ -25,7 +25,7 @@ function MovieListUpcom(props) {
 
     return (
         <div>
-            <Link to={'/movie/' + props.movie.id} style={{ textDecoration: 'none' }}>
+            <Link to={'/movie/' + props.movie.id} replace style={{ textDecoration: 'none' }}>
             <div>
                     <Card className={classes.root}>
                         <CardMedia

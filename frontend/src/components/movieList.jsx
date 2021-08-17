@@ -14,30 +14,33 @@ function MovieList(props) {
 
   const { movies } = props
 
-//   function getTotalPage() {
-//     axios.get(`http://localhost:5000/list/`)
-//       .then(res => {const totalPage = res.data})
-//       .catch(err => { console.log(err) })
-//   }
+  // const [totalPage,setTotalPage]=useState();
 
-//   const getData=text=>dispatch=>{
-//     axios.get(`http://localhost:5000/list/1`)
-//         .then(res=>{dispatch({
-//             type:UPCOM_MOVIES,
-//             payload:res.data
-//         })})
-//         .catch(err=>{console.log(err)})
-// }
-
-//   function handleClick(){
-//     const no=pageNo+1;
-//     setPageNo(no);
-//   }
-
-//   useEffect(() => {
-//     getData();
-//     // eslint-disable-next-line
-//   }, [])
+  // function getTotalPage() {
+  //     axios.get(`http://localhost:5000/list/`)
+  //       .then(res => {setTotalPage(res.data)})
+  //       .catch(err => { console.log(err) })
+  //   }
+  
+  //   let pageNo=1;
+  //   const getData=text=>dispatch=>{
+  //     axios.get(`http://localhost:5000/list/${pageNo}`)
+  //         .then(res=>{dispatch({
+  //             type:UPCOM_MOVIES,
+  //             payload:res.data,
+  //         })})
+  //         .catch(err=>{console.log(err)})
+  // }
+  
+  //   function handleClick(){
+  //       console.log(totalPage)
+  //   }
+  
+  //   useEffect(() => {
+  //       getTotalPage();
+  //       getData();
+  //     // eslint-disable-next-line
+  //   }, [])
 
   return (
     <React.Fragment>
