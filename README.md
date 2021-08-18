@@ -12,7 +12,15 @@ Intructions to run the app
   
     npm install
     
-  -after installing run the server
+  -go to https://www.themoviedb.org/settings/api to get api key
+  
+  -create a new file .env in backend folder
+ 
+    New-Item .env
+    
+  -go to .env file and create a variable API_KEY and assign your api key to that variable
+    
+  -after saving the file run the server
   
     npm start
     
@@ -28,7 +36,7 @@ Intructions to run the app
   
     npm install
     
-  -after installing run the app
+  -after installing run the frontend app
   
     npm start
 
