@@ -1,5 +1,8 @@
 const router=require("express").Router()
 const https=require("https")
+require('dotenv').config();
+
+const key=process.env.API_KEY
 
 
 //Movie Details Page
@@ -7,7 +10,7 @@ router.route("/:id").post((req, res) => {
 
 
     // get details of the movie
-    const detailsUrl = `https://api.themoviedb.org/3/movie/${req.params.id}?api_key=2ee360ce8f2c8558a7907411bf525171`
+    const detailsUrl = `https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${key}`
     https.get(detailsUrl, function (response) {
         console.log(response.statusCode)
 

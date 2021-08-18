@@ -1,8 +1,11 @@
 const router=require("express").Router()
 const https=require("https")
+require('dotenv').config();
+
+const key=process.env.API_KEY
 
 router.route("/:id").post((req,res)=>{
-    const url=`https://api.themoviedb.org/3/search/movie?api_key=2ee360ce8f2c8558a7907411bf525171&query=${req.params.id}`
+    const url=`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${req.params.id}`
     https.get(url,function(response){
         console.log(response.statusCode)
         var data;
