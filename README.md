@@ -1,3 +1,7 @@
+App Demo:
+
+![ahCHHW7L2c7BtIxpA8](https://user-images.githubusercontent.com/87312638/130195517-b7ced1f3-4f0b-4915-bab7-c619c21fdf38.gif)
+
 Intructions to run the app
 
   -download and unzip the zip file
@@ -39,10 +43,7 @@ Intructions to run the app
   -after installing run the frontend app
   
     npm start
-
-
-App Demo:
-![ahCHHW7L2c7BtIxpA8](https://user-images.githubusercontent.com/87312638/130195517-b7ced1f3-4f0b-4915-bab7-c619c21fdf38.gif)
+    
 
 Challenge completed:
 
