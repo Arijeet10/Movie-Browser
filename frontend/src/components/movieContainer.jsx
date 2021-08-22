@@ -59,22 +59,13 @@ function MovieContainer(props) {
                 height: "100px",
                 border: "none",
             }}>
-                {/* <button style={{
-                    color: "white",
-                    background: "#2196f3",
-                    outline: "none",
-                    border: "none",
-                    padding: "5px 15px",
-                    fontSize: "1.3em",
-                    fontWeight: "400",
-                }} type="submit" onClick={handleClick}>Next</button> */}
                 <IconButton style={{
                     color: "white",
                     background: "#2196f3",
                     outline: "none",
                     border: "none",
                     padding: "5px 15px",
-                    size: "200px",
+                    size: "400px",
                     fontWeight: "400",
                 }}
                     type="submit" onClick={handleClick}
