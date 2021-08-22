@@ -4,13 +4,13 @@ App Demo:
 
 Instructions to run the app
 
+  -install node.js from official website https://nodejs.org/en/download/ ignore if already installed
+
   -download and unzip the zip file
   
   -open the file in code editor
   
-  -install node.js from official website https://nodejs.org/en/download/ ignore if already installed
-  
-  -After installing node.js, open the backend folder in terminal
+  -open the backend folder in terminal
   
     cd backend
     
