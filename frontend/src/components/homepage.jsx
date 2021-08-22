@@ -1,7 +1,6 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {connect} from "react-redux";
-import { UPCOM_MOVIES } from '../actions/types';
+// import { UPCOM_MOVIES } from '../actions/types';
 import Loading from "./loading";
 import MovieContainer from './movieContainer';
 import NavBar from "./searchbar";
@@ -18,7 +17,6 @@ import NavBar from "./searchbar";
 // }
 
 function HomePage(props) {
-    let pageNo=1
 
     const {loading}=props;
 

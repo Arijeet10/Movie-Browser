@@ -26,22 +26,13 @@ export const fetchDetails=id=>dispatch=>{
     .catch(err => { console.log(err) })
 }
 
+export const fetchUpcomming=(data)=>{
+    return {
+        type:UPCOM_MOVIES,
+        payload:data
+    };
+};
 
-
-// function getTotalPage(){
-//     axios.get(`http://localhost:5000/list/`)
-//         .then(res=>totalPage=res.data)
-//         .catch(err=>{console.log(err)})
-// }
-
-export const fetchUpcomming=text=>dispatch=>{
-    axios.get(`http://localhost:5000/list/1`)
-        .then(res=>{dispatch({
-            type:UPCOM_MOVIES,
-            payload:res.data
-        })})
-        .catch(err=>{console.log(err)})
-}
 
 export const setLoading=()=>{
     return {

@@ -1,48 +1,36 @@
 import { Grid, Paper } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import MovieCard from "./movieCard";
 import MovieList from './movieList';
-import { UPCOM_MOVIES } from '../actions/types';
 import axios from 'axios';
+import { fetchUpcomming } from '../actions/searchActions';
 
 
 function MovieContainer(props) {
     const { movies } = props
 
     const [pageNo, setPageNo] = useState(1);
-    const [totalPage, setTotalPage] = useState();
 
-    function getTotalPage() {
-        axios.get(`http://localhost:5000/list/`)
-            .then(res => { setTotalPage(res.data) })
-            .catch(err => { console.log(err) })
-    }
-
-    const getData = text => dispatch => {
-        axios.get(`http://localhost:5000/list/${pageNo}`)
-            .then(res => {
-                dispatch({
-                    type: UPCOM_MOVIES,
-                    payload: res.data,
-                })
-            })
-            .catch(err => { console.log(err) })
-    }
+    const dispatch=useDispatch()
+    
+    const getData = async () => {
+        const response = await axios
+            .get(`http://localhost:5000/list/${pageNo}`)
+            .catch(err => console.log(err));
+        dispatch((fetchUpcomming(response.data)));   //dispatch data in the reducer
+    };
 
     function handleClick() {
         setPageNo(pageNo + 1)
+        console.log(pageNo)
         getData();
     }
 
     useEffect(() => {
-        getTotalPage();
         getData();
         // eslint-disable-next-line
     }, [pageNo])
-
-
-
 
     return (
         <div>
