@@ -34,13 +34,15 @@ function Movie(props) {
 
     const imgUrl = "http://image.tmdb.org/t/p/original"
 
-    const { loading, detail, search } = props;
+    const { loading, detail, search } = props;  //destructuring the states
 
+    //function to get movie details from the api
     function componentMounting() {
-        props.fetchDetails(props.match.params.id);
-        props.setLoading();
+        props.fetchDetails(props.match.params.id);  //gets particular movie details with respect to movie id
+        props.setLoading(); //while fetching details set loading state to true
     }
 
+    //calls function to fetch movie details when component renders
     useEffect(() => {
         componentMounting();
         // eslint-disable-next-line
@@ -80,8 +82,6 @@ function Movie(props) {
                                         <Typography variant="body2" gutterBottom>
                                             Director:{detail.movieDirector}
                                         </Typography>
-                                    </Grid>
-                                    <Grid item>
                                         <Typography variant="caption" style={{ cursor: 'pointer' }}>
                                             {detail.movieDesc}
                                         </Typography>
@@ -95,14 +95,12 @@ function Movie(props) {
                     </Paper>
                 </div>
                 )
-
             }
         </React.Fragment>
-
-
     )
 }
 
+//pass the states to the props of component
 const mapStateToProps = state => ({
     loading: state.movies.loading,
     detail: state.movies.detail,

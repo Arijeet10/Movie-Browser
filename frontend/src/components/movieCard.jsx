@@ -20,11 +20,12 @@ function MovieCard(props) {
 
     const classes = useStyles();
 
-    const imgUrl = "http://image.tmdb.org/t/p/original"
+    const imgUrl = "http://image.tmdb.org/t/p/original" //base url to load images from the api
 
     return (
         <div>
-            <Link to={'/movie/'+props.movie.id} style={{ textDecoration: 'none'}}>
+            {/* if user click then redirect to the details page of particular movie */}
+            <Link to={'/movie/'+props.movie.id} style={{ textDecoration: 'none'}}>  
             <div>
                     <Card className={classes.root}>
                         <CardMedia

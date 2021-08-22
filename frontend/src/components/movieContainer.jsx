@@ -5,15 +5,18 @@ import MovieCard from "./movieCard";
 import axios from 'axios';
 import { fetchUpcomming } from '../actions/searchActions';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Loading from './loading';
 
 
 function MovieContainer(props) {
-    const { movies, search } = props
+    const { movies, search } = props    //destructuring of the states
 
-    const [pageNo, setPageNo] = useState(1);
+    const [pageNo, setPageNo] = useState(1);    //state to store the page number
 
+    //for dispatching the data to reducer
     const dispatch = useDispatch()
 
+    //fetch the data from api using axios
     const getData = async () => {
         const response = await axios
             .get(`http://localhost:5000/list/${pageNo}`)
@@ -22,11 +25,11 @@ function MovieContainer(props) {
     };
 
     function handleClick() {
-        setPageNo(pageNo + 1)
-        console.log(pageNo)
-        getData();
+        setPageNo(pageNo + 1)   //increase the page count to load next page
+        getData();  //fetch the next page data from api
     }
 
+    // calls the function to fetch movie data one time when page renders
     useEffect(() => {
         if (search === false) {
             getData();
@@ -36,6 +39,7 @@ function MovieContainer(props) {
 
     return (
         <div>
+            {/* condition to check if the movies state has data from api then render the movie list */}
             {
                 movies.length > 0 ?
                     <div style={{ marginTop: 20 }}>
@@ -50,8 +54,9 @@ function MovieContainer(props) {
                             )}
                         </Grid>
                     </div>
-                    : null
+                    : <Loading />
             }
+            {/* button to load the next movie list page */}
             <div style={{
                 display: "flex",
                 justifyContent: "center",
@@ -76,6 +81,7 @@ function MovieContainer(props) {
     )
 }
 
+//pass the movie and search state as a prop to the component
 const mapStateToProps = state => ({
     movies: state.movies.movies,
     search: state.movies.search
