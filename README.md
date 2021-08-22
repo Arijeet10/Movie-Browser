@@ -8,6 +8,8 @@ Instructions to run the app
   
   -open the file in code editor
   
+  -install node.js from official website https://nodejs.org/en/download/ ignore if already installed
+  
   -open the backend folder in terminal
   
     cd backend
