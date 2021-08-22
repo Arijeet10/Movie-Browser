@@ -55,11 +55,9 @@ Challenge completed:
   
   -Designed the frontend using material-ui components
   
-  -Developed a responsive design and user friendly UI
+  -Created pagination of the list of movies using button 
   
- Challenge pending:
- 
-  -create infinite scrolling and paginating the list of movies page 
+  -Developed a responsive design and user friendly UI
  
  
  If there is extra time given then I would like to solve the pending challenge and also try testing the app. 
