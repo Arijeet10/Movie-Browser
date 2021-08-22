@@ -10,7 +10,7 @@ Instructions to run the app
   
   -install node.js from official website https://nodejs.org/en/download/ ignore if already installed
   
-  -open the backend folder in terminal
+  -After installing node.js, open the backend folder in terminal
   
     cd backend
     
