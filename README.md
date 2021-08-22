@@ -2,7 +2,7 @@ App Demo:
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/87312638/130196657-68dd052a-5154-4f1c-a9b7-5739bc861bf2.gif)
 
-Intructions to run the app
+Instructions to run the app
 
   -download and unzip the zip file
   
