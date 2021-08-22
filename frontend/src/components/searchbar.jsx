@@ -80,13 +80,6 @@ function NavBar(props) {
                                                 </IconButton>
                                             </InputAdornment>
                                     }}
-                                    // startAdornment={
-                                    //     <InputAdornment position="start">
-                                    //         <IconButton>
-                                    //             <SearchIcon style={{ color: "#03a9f4" }} onClick={handleSubmit} />
-                                    //         </IconButton>
-                                    //     </InputAdornment>
-                                    // }
                                     placeholder="search"
                                     onChange={handleReduxChange}
                                     variant="outlined"

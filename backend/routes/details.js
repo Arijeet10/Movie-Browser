@@ -70,13 +70,6 @@ router.route("/:id").post((req, res) => {
                         movieDirector:Director
                     })
                 })
-                // res.on("creditData",function(creditData){
-                //     const Credits=JSON.parse(creditData)
-                //     const Cast=Credits.cast[0].name
-                //     const Director=Credits.crew[0].name
-                //     console.log(Cast)
-                //     console.log(Director)
-                // })
             })
 
 

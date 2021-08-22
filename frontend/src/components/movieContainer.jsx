@@ -65,12 +65,10 @@ function MovieContainer(props) {
                     outline: "none",
                     border: "none",
                     padding: "5px 15px",
-                    size: "400px",
-                    fontWeight: "400",
                 }}
                     type="submit" onClick={handleClick}
                 >
-                    <NavigateNextIcon />
+                    <NavigateNextIcon size="large" />
                 </IconButton>
 
             </div>
