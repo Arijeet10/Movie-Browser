@@ -27,7 +27,9 @@ function MovieContainer(props) {
     }
 
     useEffect(() => {
-        getData();
+        if(search===false){
+            getData();
+        }
         // eslint-disable-next-line
     }, [])
 
