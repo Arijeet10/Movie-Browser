@@ -75,8 +75,8 @@ function NavBar(props) {
                                     InputProps={{
                                         startAdornment:
                                             <InputAdornment position="start">
-                                                <IconButton>
-                                                    <SearchIcon style={{ color: "#03a9f4" }} onClick={handleSubmit} />
+                                                <IconButton onClick={handleSubmit}>
+                                                    <SearchIcon style={{ color: "#03a9f4" }}  />
                                                 </IconButton>
                                             </InputAdornment>
                                     }}

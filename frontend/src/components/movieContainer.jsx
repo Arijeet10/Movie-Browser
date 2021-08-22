@@ -2,13 +2,12 @@ import { Grid, Paper } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from "react-redux";
 import MovieCard from "./movieCard";
-import MovieList from './movieList';
 import axios from 'axios';
 import { fetchUpcomming } from '../actions/searchActions';
 
 
 function MovieContainer(props) {
-    const { movies } = props
+    const { movies,search } = props
 
     const [pageNo, setPageNo] = useState(1);
 
@@ -30,13 +29,12 @@ function MovieContainer(props) {
     useEffect(() => {
         getData();
         // eslint-disable-next-line
-    }, [pageNo])
+    }, [])
 
     return (
         <div>
-
             {
-                movies.length > 0 ?
+                movies.length>0 ?
                     <div style={{ marginTop: 20 }}>
                         <Grid container spacing={2}>
                             {movies.map(
@@ -49,7 +47,7 @@ function MovieContainer(props) {
                             )}
                         </Grid>
                     </div>
-                    : <MovieList />
+                    : null
             }
             <div style={{
                   display: "flex",
@@ -75,6 +73,7 @@ function MovieContainer(props) {
 
 const mapStateToProps = state => ({
     movies: state.movies.movies,
+    search:state.movies.search
 })
 
 
