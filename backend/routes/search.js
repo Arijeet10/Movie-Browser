@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const key=process.env.API_KEY
 
+//search for the movie
 router.route("/:id").post((req,res)=>{
     const url=`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${req.params.id}`
     https.get(url,function(response){
