@@ -1,18 +1,19 @@
-import { Grid, Paper } from '@material-ui/core';
+import { Grid, Paper, IconButton } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from "react-redux";
 import MovieCard from "./movieCard";
 import axios from 'axios';
 import { fetchUpcomming } from '../actions/searchActions';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 
 function MovieContainer(props) {
-    const { movies,search } = props
+    const { movies, search } = props
 
     const [pageNo, setPageNo] = useState(1);
 
-    const dispatch=useDispatch()
-    
+    const dispatch = useDispatch()
+
     const getData = async () => {
         const response = await axios
             .get(`http://localhost:5000/list/${pageNo}`)
@@ -27,7 +28,7 @@ function MovieContainer(props) {
     }
 
     useEffect(() => {
-        if(search===false){
+        if (search === false) {
             getData();
         }
         // eslint-disable-next-line
@@ -36,7 +37,7 @@ function MovieContainer(props) {
     return (
         <div>
             {
-                movies.length>0 ?
+                movies.length > 0 ?
                     <div style={{ marginTop: 20 }}>
                         <Grid container spacing={2}>
                             {movies.map(
@@ -52,13 +53,13 @@ function MovieContainer(props) {
                     : null
             }
             <div style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100px",
-                  border: "none", 
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100px",
+                border: "none",
             }}>
-                <button style={{
+                {/* <button style={{
                     color: "white",
                     background: "#2196f3",
                     outline: "none",
@@ -66,7 +67,20 @@ function MovieContainer(props) {
                     padding: "5px 15px",
                     fontSize: "1.3em",
                     fontWeight: "400",
-                }} type="submit" onClick={handleClick}>Next</button>
+                }} type="submit" onClick={handleClick}>Next</button> */}
+                <IconButton style={{
+                    color: "white",
+                    background: "#2196f3",
+                    outline: "none",
+                    border: "none",
+                    padding: "5px 15px",
+                    size: "200px",
+                    fontWeight: "400",
+                }}
+                    type="submit" onClick={handleClick}
+                >
+                    <NavigateNextIcon />
+                </IconButton>
 
             </div>
         </div>
@@ -75,7 +89,7 @@ function MovieContainer(props) {
 
 const mapStateToProps = state => ({
     movies: state.movies.movies,
-    search:state.movies.search
+    search: state.movies.search
 })
 
 
