@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { searchMovie, fetchMovies, setLoading, fetchUpcomming } from "../actions/searchActions";
 import { connect } from "react-redux";
 import { AppBar, IconButton, InputAdornment, TextField } from "@material-ui/core";
@@ -17,15 +17,22 @@ const theme = createTheme({
 
 function NavBar(props) {
 
+    const [searchData,setSearchData]=useState()
+
     function handleReduxChange(event) {
         event.preventDefault();
         props.searchMovie(event.target.value)
+        setSearchData(event.target.value)
     }
 
     function handleSubmit(event) {
-        event.preventDefault();
-        props.fetchMovies(props.text)
-        props.setLoading();
+        if(searchData===undefined){
+            alert("search empty")
+        }else{
+            event.preventDefault();
+            props.fetchMovies(props.text)
+            props.setLoading();
+        }
     }
 
 
