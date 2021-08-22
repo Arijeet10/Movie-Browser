@@ -17,6 +17,7 @@ function App() {
               <HomePage />
             </Route>
             <Route exact path="/movie/:id" component={Movie} />
+            <Route>404 not found</Route>
           </Switch>
         </Router>
       </Provider>
