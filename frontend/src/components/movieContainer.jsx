@@ -10,7 +10,7 @@ import axios from 'axios';
 function MovieContainer(props) {
     const { movies } = props
 
-
+    const [pageNo, setPageNo] = useState(1);
     const [totalPage, setTotalPage] = useState();
 
     function getTotalPage() {
@@ -19,7 +19,6 @@ function MovieContainer(props) {
             .catch(err => { console.log(err) })
     }
 
-    let pageNo = 3;
     const getData = text => dispatch => {
         axios.get(`http://localhost:5000/list/${pageNo}`)
             .then(res => {
@@ -32,14 +31,15 @@ function MovieContainer(props) {
     }
 
     function handleClick() {
-        console.log(totalPage)
+        setPageNo(pageNo + 1)
+        getData();
     }
 
     useEffect(() => {
         getTotalPage();
         getData();
         // eslint-disable-next-line
-    }, [])
+    }, [pageNo])
 
 
 
@@ -63,24 +63,24 @@ function MovieContainer(props) {
                     </div>
                     : <MovieList />
             }
+            <div style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100px",
+                  border: "none", 
+            }}>
+                <button style={{
+                    color: "white",
+                    background: "#2196f3",
+                    outline: "none",
+                    border: "none",
+                    padding: "5px 15px",
+                    fontSize: "1.3em",
+                    fontWeight: "400",
+                }} type="submit" onClick={handleClick}>Next</button>
 
-            {/* {
-            movies.length > 0 ?
-                <div style={{ marginTop: 20 }}>
-                    <Grid container spacing={2}>
-                        {movies.map(
-                            (movie, index) =>
-                                <Grid item key={index} xs={9} md={3} lg={2}>
-                                    <Paper>
-                                        <MovieCard key={index} movie={movie} />
-                                    </Paper>
-                                </Grid>
-                        )}
-                    </Grid>
-                </div>
-                :<MovieList /> 
-                } */}
-            <button type="submit" onClick={handleClick}>Next</button>
+            </div>
         </div>
     )
 }

@@ -29,7 +29,7 @@ router.route("/:pageNo").get((req, res) => {
     })
 })
 
-
+//get total pages route
 router.route("/").get((req, res) => {
     // get movie title,rating,description and image path
     const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}`
