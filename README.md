@@ -61,5 +61,3 @@ Challenge completed:
   
   -Developed a responsive design and user friendly UI
  
- 
- If there is extra time given then I would like to try testing the app and solve the bugs
